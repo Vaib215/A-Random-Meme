@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Link, Router } from "react-router-dom";
 
 const StyledMenu = styled(props => (
   <Menu
@@ -68,15 +69,17 @@ export default function Categories() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          Dank
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          Funny
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          Adult
-        </MenuItem>
+        <Router>
+          <MenuItem onClick={handleClose} disableRipple>
+            <Link to="/dank">Dank</Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose} disableRipple>
+            <Link to="/funny">Funny</Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose} disableRipple>
+            <Link to="/">More Soon</Link>
+          </MenuItem>
+        </Router>
       </StyledMenu>
     </div>
   );

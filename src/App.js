@@ -14,7 +14,9 @@ function App() {
       <Navbar setMode={setMode} mode={mode} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MemesList />}/>
+          <Route path="/" element={<MemesList memeUrl="https://meme-api.herokuapp.com/gimme/9"/>}/>
+          <Route path="/dank" element={<MemesList memeUrl="https://meme-api.herokuapp.com/gimme/dankindian/9"/>}/>
+          <Route path="/funny" element={<MemesList memeUrl="https://meme-api.herokuapp.com/gimme/funnymemes/9"/>}/>
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -12,7 +12,7 @@ export default class MemesList extends Component {
     }
   }
   fetchData = async () => {
-    let url = "https://meme-api.herokuapp.com/gimme/9"
+    let url = this.props.memeUrl
     let data = await fetch(url)
     return await data.json()
   }
