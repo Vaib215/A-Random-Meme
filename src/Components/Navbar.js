@@ -20,7 +20,7 @@ const Navbar = (props) => {
     } else {
       document.documentElement.classList.remove('dark')
     }
-    localStorage.theme = props.mode==="light"?"dark":"light"
+    localStorage.theme = props.mode === "light" ? "dark" : "light"
   }
   return (
     <header className={`w-full bg-blue-50 dark:bg-blue-900 mb-4 shadow-lg rounded-b-3xl fixed z-10 opacity-[0.9]`}>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
         {/* ::Navbar */}
         <nav className="hidden md:flex lg:w-2/5 flex-wrap items-center md:justify-start text-base tracking-wide">
           <A text="Home" />
-          <Categories/>
+          <Categories />
           <A text="About" />
           <A text="Contact" />
         </nav>
@@ -67,8 +67,10 @@ const Navbar = (props) => {
           </span>
         </a>
         {/* Dark Mode Switch */}
-        <div className="hidden md:flex lg:w-2/5 ml-auto md:ml-0 mr-4 md:mr-0 justify-end cursor-pointer" onClick={setTheme}>
-          <Modeswitch sx={{ m: 1 }} />
+        <div className="hidden md:flex lg:w-2/5 ml-auto md:ml-0 justify-end">
+          <div onClick={setTheme} className="cursor-pointer mr-4 md:mr-0">
+            <Modeswitch sx={{ m: 0.5 }} />
+          </div>
         </div>
       </div>
 
@@ -76,7 +78,7 @@ const Navbar = (props) => {
       {isOpen && (
         <div className="w-full flex flex-wrap py-4 px-3 md:hidden bg-blue-50 dark:bg-blue-900 justify-center text-base uppercase">
           <A text="Home" />
-          <Categories/>
+          <Categories />
           <A text="About" />
           <A text="Contact" />
           <Modeswitch

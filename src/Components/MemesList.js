@@ -22,6 +22,7 @@ export default class MemesList extends Component {
   }
 
   handleMoreMemes = async () => {
+    this.setState({ loading: true })
     const data = await this.fetchData()
     this.setState({ memes: data.memes, loading: false })
   }
@@ -29,15 +30,16 @@ export default class MemesList extends Component {
     return (
       <div>
         <section className="text-blue-400 body-font z-0">
-          <div className="container px-5 pt-24 md:py-24 mx-auto">
+          <div className="container px-5 mx-auto">
             <div className="flex flex-col text-center w-full mb-20">
-              <h1 id="head" className="sm:text-3xl text-2xl font-medium title-font mb-4">
+              <h1 id="head" className="sm:text-3xl text-2xl font-medium title-font pt-24">
                 Latest memes ahead
               </h1>
             </div>
             {this.state.loading ?
-              <div className="flex justify-center h-[40vh] items-center">
+              <div className="flex flex-col justify-center h-[40vh] items-center">
                 <CircularProgress />
+                <p>Loading...</p>
               </div> : <br />}
             <div className="flex flex-wrap -m-4">
               {this.state.memes.map((e, i) => {
@@ -46,7 +48,9 @@ export default class MemesList extends Component {
                 )
               })}
             </div>
-            <Button variant="contained" onClick={this.handleMoreMemes}><a href="#head"> Load More...</a></Button>
+            <div className="my-8 mx-auto">
+              <Button variant="contained" onClick={this.handleMoreMemes}><a href="#head"> Load More...</a></Button>
+            </div>
           </div>
         </section>
       </div>
